@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Coral Health Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a web-based dashboard for visualizing coral reef health data. It allows users to upload a CSV file containing sensor data (temperature, light intensity, pH, and salinity) and view the data in a series of charts.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+*   Upload CSV data file.
+*   Visualize data with interactive charts.
+*   Download a sample CSV template.
+*   Responsive design for different screen sizes.
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+*   [Node.js](https://nodejs.org/) (v22 or higher)
+*   [npm](https://www.npmjs.com/)
+*   [Docker](https://www.docker.com/) (optional, for containerized deployment)
 
-### `npm test`
+### Local Development
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1.  **Install dependencies:**
 
-### `npm run build`
+    ```bash
+    make install
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2.  **Start the development server:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```bash
+    make start
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    This will open the application in your default browser at `http://localhost:3000`.
 
-### `npm run eject`
+### Docker Deployment
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1.  **Build the Docker image:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```bash
+    make docker-build
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2.  **Run the Docker container:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    ```bash
+    make docker-run
+    ```
 
-## Learn More
+    The application will be available at `http://localhost:8080`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Data Format
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The application expects a CSV file with the following columns:
 
-### Code Splitting
+*   `date`: The date of the measurement (e.g., `2025-07-06`).
+*   `temperature`: The water temperature in degrees Celsius.
+*   `light_intensity`: The light intensity in lux.
+*   `ph`: The pH level of the water.
+*   `salinity`: The salinity of the water in parts per thousand (ppt).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Sample Data
 
-### Analyzing the Bundle Size
+You can download a sample CSV template from the application's upload page. Here is an example of the expected format:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```csv
+date,temperature,light_intensity,ph,salinity
+2025-07-06,26.5,160,8.2,35.1
+2025-07-07,26.6,162,8.2,35.2
+2025-07-08,26.7,165,8.3,35.3
+```
 
-### Making a Progressive Web App
+## Built With
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*   [React](https://reactjs.org/)
+*   [Chart.js](https://www.chartjs.org/)
+*   [Bootstrap](https://getbootstrap.com/)
+*   [Nginx](https://www.nginx.com/)
+*   [Docker](https://www.docker.com/)
